@@ -21,9 +21,14 @@ namespace QuestionServiceWebApi.Controllers
 
         [HttpGet]
         [Route("")]
-        public Questionnaire Get()
+        public IHttpActionResult Get()
         {
-            return _questionRepository.GetQuestionnaire();
+            var questions = _questionRepository.GetQuestionnaire();
+
+            if (questions == null)
+                return NotFound();
+
+            return Ok(questions);
         }
 
         [HttpGet]
