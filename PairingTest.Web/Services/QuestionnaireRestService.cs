@@ -1,4 +1,7 @@
-﻿using PairingTest.Web.Interfaces;
+﻿using System;
+using System.Net.Http;
+using System.Web.Http;
+using PairingTest.Web.Interfaces;
 using PairingTest.Web.Models;
 using QuestionServiceWebApi.Controllers;
 
@@ -13,17 +16,16 @@ namespace PairingTest.Web.Services
             _apiController = new QuestionsController();
         }
 
-        public QuestionnaireViewModel Get()
+        public HttpResponseMessage Get()
         {
-            var response = _apiController.Get();
-
-            var content = new QuestionnaireViewModel()
+            var client = new HttpClient()
             {
-                QuestionnaireTitle = response.QuestionnaireTitle,
-                QuestionsText = response.QuestionsText
+                BaseAddress = new Uri("http://localhost:50014/")
             };
 
-            return content;
+            var response = client.GetAsync("api/questions").Result;
+            
+            return response;
         }
     }
 }
