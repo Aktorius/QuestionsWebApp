@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Net.Http;
+using System.Web.Mvc;
 using NUnit.Framework;
 using PairingTest.Web.Controllers;
 using PairingTest.Web.Models;
@@ -20,8 +21,9 @@ namespace PairingTest.Unit.Tests.Web.Services
             var response = questionnaireRestService.Get();
 
             //Assert
-            Assert.IsNotNull(response);
-            Assert.That(response.QuestionnaireTitle, Is.EqualTo(expectedTitle));
+            Assert.IsTrue(response.IsSuccessStatusCode);
+            var model = response.Content.ReadAsAsync<QuestionnaireViewModel>().Result;
+            Assert.That(model.QuestionnaireTitle, Is.EqualTo(expectedTitle));
         }
     }
 }

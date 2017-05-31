@@ -1,7 +1,6 @@
 ﻿using System.Web.Http.Results;
 using Moq;
 using NUnit.Framework;
-using PairingTest.Unit.Tests.QuestionServiceWebApi.Stubs;
 using QuestionServiceWebApi.Controllers;
 using QuestionServiceWebApi.Entities;
 using QuestionServiceWebApi.Interfaces;
