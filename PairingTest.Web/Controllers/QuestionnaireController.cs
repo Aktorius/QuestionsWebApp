@@ -21,9 +21,14 @@ namespace PairingTest.Web.Controllers
 //        {
 //        }
 
-        public ViewResult Index()
+        public ActionResult Index()
         {
-            return View(new QuestionnaireViewModel());
+            var model = _questionnaireRestService.Get();
+
+            if (model == null)
+                return HttpNotFound();
+
+            return View(model);
         }
     }
 }
