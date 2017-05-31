@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Net.Http;
+using System.Web.Mvc;
 using PairingTest.Web.Interfaces;
 using PairingTest.Web.Models;
 using PairingTest.Web.Services;
@@ -23,12 +24,15 @@ namespace PairingTest.Web.Controllers
 
         public ActionResult Index()
         {
-            var model = _questionnaireRestService.Get();
+            var response = _questionnaireRestService.Get();
 
-            if (model == null)
-                return HttpNotFound();
+            if (response.IsSuccessStatusCode)
+            {
+                var model = response.Content.ReadAsAsync<QuestionnaireViewModel>().Result;
+                return View(model);
+            }
 
-            return View(model);
+            return HttpNotFound();
         }
     }
 }

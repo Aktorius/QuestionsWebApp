@@ -1,9 +1,9 @@
-﻿using PairingTest.Web.Models;
+﻿using System.Net.Http;
 
 namespace PairingTest.Web.Interfaces
 {
     public interface IQuestionnaireRestService
     {
-        QuestionnaireViewModel Get();
+        HttpResponseMessage Get();
     }
 }

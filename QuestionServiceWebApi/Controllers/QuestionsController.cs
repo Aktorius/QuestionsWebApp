@@ -1,8 +1,11 @@
 ﻿using System.Web.Http;
+using QuestionServiceWebApi.Entities;
 using QuestionServiceWebApi.Interfaces;
+using QuestionServiceWebApi.Repositories;
 
 namespace QuestionServiceWebApi.Controllers
 {
+    [RoutePrefix("api/questions")]
     public class QuestionsController : ApiController
     {
         private readonly IQuestionRepository _questionRepository;
@@ -16,29 +19,39 @@ namespace QuestionServiceWebApi.Controllers
         {
         }
 
-        // GET api/questions
-        public Questionnaire Get()
+        [HttpGet]
+        [Route("")]
+        public IHttpActionResult Get()
         {
-            return _questionRepository.GetQuestionnaire();
+            var questions = _questionRepository.GetQuestionnaire();
+
+            if (questions == null)
+                return NotFound();
+
+            return Ok(questions);
         }
 
-        // GET api/questions/5
+        [HttpGet]
+        [Route("{id}")]
         public string Get(int id)
         {
             return "";
         }
 
-        // POST api/questions
+        [HttpPost]
+        [Route("")]
         public void Post([FromBody]string value)
         {
         }
 
-        // PUT api/questions/5
+        [HttpPut]
+        [Route("{id}")]
         public void Put(int id, [FromBody]string value)
         {
         }
 
-        // DELETE api/questions/5
+        [HttpDelete]
+        [Route("{id}")]
         public void Delete(int id)
         {
         }

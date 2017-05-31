@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace QuestionServiceWebApi
+namespace QuestionServiceWebApi.Entities
 {
     [DataContract]
     public class Questionnaire
