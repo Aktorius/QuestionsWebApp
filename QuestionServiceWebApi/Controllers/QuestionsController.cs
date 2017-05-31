@@ -1,5 +1,7 @@
 ﻿using System.Web.Http;
+using QuestionServiceWebApi.Entities;
 using QuestionServiceWebApi.Interfaces;
+using QuestionServiceWebApi.Repositories;
 
 namespace QuestionServiceWebApi.Controllers
 {

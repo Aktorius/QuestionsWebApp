@@ -1,7 +1,8 @@
 using System.Collections.Generic;
+using QuestionServiceWebApi.Entities;
 using QuestionServiceWebApi.Interfaces;
 
-namespace QuestionServiceWebApi
+namespace QuestionServiceWebApi.Repositories
 {
     public class QuestionRepository : IQuestionRepository
     {

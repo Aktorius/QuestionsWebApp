@@ -2,6 +2,7 @@
 using PairingTest.Unit.Tests.QuestionServiceWebApi.Stubs;
 using QuestionServiceWebApi;
 using QuestionServiceWebApi.Controllers;
+using QuestionServiceWebApi.Entities;
 
 namespace PairingTest.Unit.Tests.QuestionServiceWebApi
 {
