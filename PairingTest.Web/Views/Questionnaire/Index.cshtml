@@ -5,6 +5,17 @@
         <title>@Model.QuestionnaireTitle</title>
     </head>
     <body>
-              
+        <div class="form-horizontal">
+            <div class="form-group">
+                <form id="questionnaire" action="" method="post">
+                    @foreach (var question in Model.QuestionsText)
+                    {
+                        <label>@question</label><br/>
+                        <input type="text"/><br/>
+                    }
+                    <input type="submit" value="Submit"/>
+                </form>
+            </div>
+        </div>
     </body>
 </html>
