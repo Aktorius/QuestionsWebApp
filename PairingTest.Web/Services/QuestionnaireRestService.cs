@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Net.Http;
-using System.Web.Http;
 using PairingTest.Web.Interfaces;
-using PairingTest.Web.Models;
 using QuestionServiceWebApi.Controllers;
 
 namespace PairingTest.Web.Services
