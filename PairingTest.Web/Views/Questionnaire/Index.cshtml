@@ -3,19 +3,27 @@
 <html>
     <head>
         <title>@Model.QuestionnaireTitle</title>
+        <link href="@Url.Content("~/Content/forms.css")" rel="stylesheet" type="text/css" />
     </head>
-    <body>
-        <div class="form-horizontal">
-            <div class="form-group">
-                <form id="questionnaire" action="" method="post">
+<body>
+
+<div class="form-horizontal">
+    <div class="form-group">
+        <div class="form-style">
+            <form id="questionnaire" action="" method="post">
+                <fieldset>
+                    <legend><span class="number">1</span>@Model.QuestionnaireTitle</legend>
                     @foreach (var question in Model.QuestionsText)
                     {
-                        <label>@question</label><br/>
+
+                        @question
                         <input type="text"/><br/>
                     }
-                    <input type="submit" value="Submit"/>
-                </form>
-            </div>
+                </fieldset>
+                <input type="submit" value="Submit" />
+            </form>
         </div>
-    </body>
+    </div>
+</div>
+</body>
 </html>
