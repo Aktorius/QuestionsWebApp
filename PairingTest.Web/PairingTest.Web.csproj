@@ -125,6 +125,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IQuestionnaireRestService.cs" />
     <Compile Include="Models\QuestionnaireViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\QuestionnaireRestService.cs" />
@@ -154,7 +155,6 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\QuestionServiceWebApi\QuestionServiceWebApi.csproj">
       <Project>{4d222fa3-1bb6-46fe-9aa0-d97fb4a92db5}</Project>

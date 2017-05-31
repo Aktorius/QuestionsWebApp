@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
-using PairingTest.Web.Services;
+using PairingTest.Web.Controllers;
+using PairingTest.Web.Models;
 
 namespace PairingTest.Unit.Tests.Web.Services
 {
@@ -10,12 +11,12 @@ namespace PairingTest.Unit.Tests.Web.Services
         public void ShouldGetQuestions()
         {
             //Arrange
-            var expectedTitle = "My expected quesitons";
-            var questionnaireRestService = new QuestionnaireRestService();
+            var expectedTitle = "Geography Questions";
+            var questionnaireController = new QuestionnaireController();
 
             //Act
-            var result = questionnaireRestService.Get();
-
+            var result = (QuestionnaireViewModel)questionnaireController.Index().ViewData.Model;
+            
             //Assert
             Assert.That(result.QuestionnaireTitle, Is.EqualTo(expectedTitle));
         }
